@@ -35,7 +35,7 @@ export function DocsNavbar({
   sidebarCollapsible,
   links,
   nav = {},
-  i18n,
+  //   i18n,
 }: {
   nav: DocsLayoutProps["nav"];
   sidebarCollapsible: boolean;

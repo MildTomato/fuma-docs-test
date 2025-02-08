@@ -45,6 +45,10 @@ import {
   CollapsibleTrigger,
 } from "fumadocs-ui/components/ui/collapsible";
 import { SidebarComponents } from "fumadocs-ui/layouts/docs/shared";
+import {
+  ScrollArea,
+  ScrollViewport,
+} from "fumadocs-ui/components/ui/scroll-area";
 
 // import { useTreeContext, useTreePath } from "@/contexts/tree";
 // import type { SidebarComponents } from "@/layouts/docs/shared";
@@ -176,7 +180,8 @@ export function Sidebar({
         blockScrollingWidth={768} // md
         {...props}
         className={cn(
-          "fixed top-[calc(var(--fd-banner-height)+var(--fd-nav-height))] z-30 bg-fd-card text-sm md:sticky md:h-[var(--fd-sidebar-height)]",
+          //   "overflow-y-auto",
+          "bg-fd-card text-sm md:h-[var(--fd-sidebar-height)]",
           "max-md:inset-x-0 max-md:bottom-0 max-md:bg-fd-background/80 max-md:text-[15px] max-md:backdrop-blur-lg max-md:data-[open=false]:invisible",
           props.className
         )}
@@ -227,24 +232,24 @@ export function SidebarFooter(props: HTMLAttributes<HTMLDivElement>) {
   );
 }
 
-// export function SidebarViewport(
-//   // @ts-expect-ignore
-//   props: any
-//   // ScrollAreaProps
-// ) {
-//   return (
-//     <ScrollArea {...props} className={cn("h-full", props.className)}>
-//       <ScrollViewport
-//         className="p-4"
-//         style={{
-//           maskImage: "linear-gradient(to bottom, transparent 2px, white 16px)",
-//         }}
-//       >
-//         {props.children}
-//       </ScrollViewport>
-//     </ScrollArea>
-//   );
-// }
+export function SidebarViewport(
+  // @ts-expect-ignore
+  props: any
+  // ScrollAreaProps
+) {
+  return (
+    <ScrollArea {...props} className={cn("h-full", props.className)}>
+      <ScrollViewport
+        className="p-4"
+        style={{
+          maskImage: "linear-gradient(to bottom, transparent 2px, white 16px)",
+        }}
+      >
+        {props.children}
+      </ScrollViewport>
+    </ScrollArea>
+  );
+}
 
 export function SidebarSeparator(props: HTMLAttributes<HTMLParagraphElement>) {
   const { level } = useInternalContext();

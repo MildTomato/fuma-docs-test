@@ -23,7 +23,7 @@ export default async function Page(props: {
 
   return (
     <DocsPage toc={page.data.toc} full={page.data.full}>
-      <p
+      {/* <p
         style={{
           backgroundColor: page.data.stage === "beta" ? "orange" : "green",
           color: "white",
@@ -38,7 +38,7 @@ export default async function Page(props: {
         }}
       >
         stage: {page?.data.stage}
-      </p>
+      </p> */}
       <DocsTitle>{page.data.title}</DocsTitle>
       <DocsDescription>{page.data.description}</DocsDescription>
       <DocsBody>

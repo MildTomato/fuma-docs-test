@@ -18,8 +18,9 @@ import {
   SidebarFooter,
   SidebarHeader,
   SidebarPageTree,
+  SidebarViewport,
 } from "../components/SideBar";
-import { SidebarViewport } from "fumadocs-ui/layouts/docs/sidebar";
+// import { SidebarViewport } from "fumadocs-ui/layouts/docs/sidebar";
 import { BoxIcon, RocketIcon } from "lucide-react";
 import { RootToggle } from "fumadocs-ui/components/layout/root-toggle";
 
@@ -126,10 +127,11 @@ export default function Layout({ children }: { children: ReactNode }) {
             <div className="flex flex-row">
               <Sidebar
                 // {...sidebar}
-                className={cn(
-                  "md:ps-[var(--fd-layout-offset)] md:[--fd-nav-height:0px] [--fd-sidebar-height:32px]"
+                className={
+                  cn()
+                  // "md:ps-[var(--fd-layout-offset)] md:[--fd-nav-height:0px] [--fd-sidebar-height:32px]"
                   // sidebar.className
-                )}
+                }
               >
                 <SidebarHeader>
                   <SidebarHeaderItems nav={{}} links={[]}>
@@ -165,7 +167,7 @@ export default function Layout({ children }: { children: ReactNode }) {
                   {/* {sidebarFooter} */}
                 </SidebarFooter>
               </Sidebar>
-              {children}
+              <div className="flex flex-row flex-1">{children}</div>
             </div>
           </StylesProvider>
         </main>
