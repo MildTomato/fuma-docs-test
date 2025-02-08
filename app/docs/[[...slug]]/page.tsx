@@ -17,7 +17,7 @@ export default async function Page(props: {
 
   if (!page) notFound();
 
-  console.log("frontmatter", page.data);
+  // console.log("frontmatter", page.data);
 
   const MDX = page.data.body;
 
