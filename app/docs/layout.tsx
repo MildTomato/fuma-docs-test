@@ -11,7 +11,7 @@ import {
   TreeContextProvider,
 } from "fumadocs-ui/provider";
 import type { ReactNode } from "react";
-import { DocsNavbar, SidebarHeaderItems } from "../components/DocsNavBar";
+import { DocsNavbar, SidebarHeaderItems } from "../../components/DocsNavBar";
 import {
   Sidebar,
   SidebarCollapseTrigger,
@@ -19,8 +19,7 @@ import {
   SidebarHeader,
   SidebarPageTree,
   SidebarViewport,
-} from "../components/SideBar";
-// import { SidebarViewport } from "fumadocs-ui/layouts/docs/sidebar";
+} from "../../components/SideBar";
 import { BoxIcon, RocketIcon } from "lucide-react";
 import { RootToggle } from "fumadocs-ui/components/layout/root-toggle";
 
