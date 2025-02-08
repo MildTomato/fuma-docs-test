@@ -2,7 +2,7 @@ import { docs } from "@/.source";
 import { loader } from "fumadocs-core/source";
 import { createOpenAPI } from "fumadocs-openapi/server";
 import { attachFile } from "fumadocs-openapi/server";
-import { generateFiles } from "fumadocs-openapi";
+// import { generateFiles } from "fumadocs-openapi";
 
 export const source = loader({
   baseUrl: "/docs",
@@ -15,7 +15,3 @@ export const source = loader({
 export const openapi = createOpenAPI({
   // options
 });
-
-// void generateFiles({
-//   per: "file",
-// });

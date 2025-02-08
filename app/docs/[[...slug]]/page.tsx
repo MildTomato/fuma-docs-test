@@ -14,12 +14,31 @@ export default async function Page(props: {
 }) {
   const params = await props.params;
   const page = source.getPage(params.slug);
+
   if (!page) notFound();
+
+  console.log("frontmatter", page.data);
 
   const MDX = page.data.body;
 
   return (
     <DocsPage toc={page.data.toc} full={page.data.full}>
+      <p
+        style={{
+          backgroundColor: page.data.stage === "beta" ? "orange" : "green",
+          color: "white",
+          padding: "4px 8px",
+          borderRadius: "4px",
+          height: "24px",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          fontSize: "12px",
+          fontWeight: "bold",
+        }}
+      >
+        stage: {page?.data.stage}
+      </p>
       <DocsTitle>{page.data.title}</DocsTitle>
       <DocsDescription>{page.data.description}</DocsDescription>
       <DocsBody>
