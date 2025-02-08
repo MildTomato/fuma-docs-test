@@ -13,6 +13,7 @@ import { Callout } from "@/components/callout";
 import { Heading } from "@/components/heading";
 import { cn } from "@/utils/cn";
 import { Pre } from "@/components/mdx.client";
+import { components as MdxShared } from "@/components/MdxBase.shared";
 
 function Image(props: ImgHTMLAttributes<HTMLImageElement>) {
   return (
@@ -58,6 +59,8 @@ const defaultMdxComponents = {
   ),
   table: Table,
   Callout,
+  // imported from older docs
+  ...MdxShared,
 };
 
 export { defaultMdxComponents as default };
