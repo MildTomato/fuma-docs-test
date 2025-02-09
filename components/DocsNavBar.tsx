@@ -5,10 +5,10 @@ import { LinkItemType } from "fumadocs-ui/layouts/docs";
 
 import { buttonVariants } from "fumadocs-ui/components/api";
 import { Title } from "fumadocs-ui/components/layout/nav";
-import {
-  LargeSearchToggle,
-  SearchToggle,
-} from "fumadocs-ui/components/layout/search-toggle";
+// import {
+//   LargeSearchToggle,
+//   SearchToggle,
+// } from "fumadocs-ui/components/layout/search-toggle";
 import {
   Popover,
   PopoverContent,
@@ -22,6 +22,7 @@ import { Fragment, HTMLAttributes, ReactNode } from "react";
 import { Navbar, NavbarSidebarTrigger } from "./NavBar";
 import Link from "next/link";
 import { NavigationMenuDemo } from "@/components/NavBarMenu";
+import { LargeSearchToggle, SearchToggle } from "./layout/search-toggle";
 // import { LanguageToggle } from "fumadocs-ui/components/layout/language-toggle";
 
 export interface DocsLayoutProps extends BaseLayoutProps {

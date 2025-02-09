@@ -7,8 +7,8 @@ import { ThemeToggle } from "fumadocs-ui/components/layout/theme-toggle";
 
 import {
   PageStyles,
-  StylesProvider,
-  TreeContextProvider,
+  // StylesProvider,
+  // TreeContextProvider,
 } from "fumadocs-ui/provider";
 import type { ReactNode } from "react";
 import { DocsNavbar, SidebarHeaderItems } from "../../components/DocsNavBar";
@@ -21,7 +21,8 @@ import {
   SidebarViewport,
 } from "../../components/SideBar";
 import { BoxIcon, Database, RocketIcon } from "lucide-react";
-import { RootToggle } from "fumadocs-ui/components/layout/root-toggle";
+import { RootToggle } from "@/components/layout/root-toggle";
+import { StylesProvider, TreeContextProvider } from "@/provider";
 
 export default function Layout({ children }: { children: ReactNode }) {
   const pageStyles: PageStyles = {
@@ -39,16 +40,6 @@ export default function Layout({ children }: { children: ReactNode }) {
 
   const tabs = [
     {
-      title: "Management API",
-      description: "Features available in /app",
-      icon: (
-        <span className="border border-blue-600/50 bg-gradient-to-t from-blue-600/30 rounded-lg p-1 text-blue-600">
-          <BoxIcon />
-        </span>
-      ),
-      url: "/docs/management-api",
-    },
-    {
       title: "Data API",
       description: "Features available in /pages",
       icon: (
@@ -57,42 +48,125 @@ export default function Layout({ children }: { children: ReactNode }) {
         </span>
       ),
       url: "/docs/data-api",
+      baseUrl: "/docs/reference",
     },
     {
-      title: "Storage API",
-      icon: (
-        <span className="border border-fd-primary/50 bg-gradient-to-t from-fd-primary/30 rounded-lg p-1 text-fd-primary">
-          <RocketIcon />
-        </span>
-      ),
-      url: "/docs/architecture",
-    },
-    {
-      title: "Community",
+      title: "Client Libraries",
       icon: (
         <span className="border border-fd-foreground/50 bg-gradient-to-t from-fd-foreground/30 rounded-lg p-1 text-fd-foreground">
           <RocketIcon />
         </span>
       ),
-      url: "/docs/community",
+      url: "/docs/client-libraries",
+      baseUrl: "/docs/reference",
+    },
+    {
+      title: "GraphQL",
+      icon: (
+        <span className="border border-fd-foreground/50 bg-gradient-to-t from-fd-foreground/30 rounded-lg p-1 text-fd-foreground">
+          <RocketIcon />
+        </span>
+      ),
+      url: "/docs/graphql",
+      baseUrl: "/docs/reference",
+    },
+    {
+      title: "Management API",
+      description: "Features available in /app",
+      icon: (
+        <span className="border border-blue-600/50 bg-gradient-to-t from-blue-600/30 rounded-lg p-1 text-blue-600">
+          <BoxIcon />
+        </span>
+      ),
+      url: "/docs/management-api",
+      baseUrl: "/docs/reference",
+    },
+    {
+      title: "CLI",
+      icon: (
+        <span className="border border-fd-foreground/50 bg-gradient-to-t from-fd-foreground/30 rounded-lg p-1 text-fd-foreground">
+          <RocketIcon />
+        </span>
+      ),
+      url: "/docs/cli",
+      baseUrl: "/docs/reference",
     },
     {
       title: "Database",
+      description: "Efficient data management.",
       icon: (
         <span className="border border-fd-foreground/50 bg-gradient-to-t from-fd-foreground/30 rounded-lg p-1 text-fd-foreground">
           <Database />
         </span>
       ),
       url: "/docs/products/database",
+      baseUrl: "/docs/products",
     },
     {
       title: "Authentication",
+      description: "Manage authorization of users.",
       icon: (
         <span className="border border-fd-foreground/50 bg-gradient-to-t from-fd-foreground/30 rounded-lg p-1 text-fd-foreground">
           <RocketIcon />
         </span>
       ),
       url: "/docs/products/authentication",
+      baseUrl: "/docs/products",
+    },
+    {
+      title: "Storage",
+      description: "Store and serve files of any size.",
+      icon: (
+        <span className="border border-fd-foreground/50 bg-gradient-to-t from-fd-foreground/30 rounded-lg p-1 text-fd-foreground">
+          <RocketIcon />
+        </span>
+      ),
+      url: "/docs/products/storage",
+      baseUrl: "/docs/products",
+    },
+    {
+      title: "Edge Functions",
+      description: "Serverless functions globally.",
+      icon: (
+        <span className="border border-fd-foreground/50 bg-gradient-to-t from-fd-foreground/30 rounded-lg p-1 text-fd-foreground">
+          <RocketIcon />
+        </span>
+      ),
+      url: "/docs/products/edge-functions",
+      baseUrl: "/docs/products",
+    },
+    {
+      title: "Realtime",
+      description: "Build real-time applications.",
+      icon: (
+        <span className="border border-fd-foreground/50 bg-gradient-to-t from-fd-foreground/30 rounded-lg p-1 text-fd-foreground">
+          <RocketIcon />
+        </span>
+      ),
+      url: "/docs/products/realtime",
+      baseUrl: "/docs/products",
+    },
+    {
+      title: "Cron",
+      description: "Schedule recurring tasks.",
+      icon: (
+        <span className="border border-fd-foreground/50 bg-gradient-to-t from-fd-foreground/30 rounded-lg p-1 text-fd-foreground">
+          <RocketIcon />
+        </span>
+      ),
+      url: "/docs/products/cron",
+      baseUrl: "/docs/products",
+    },
+    {
+      title: "Queues",
+      description: "Manage background jobs.",
+      icon: (
+        <span className="border border-fd-foreground/50 bg-gradient-to-t from-fd-foreground/30 rounded-lg p-1 text-fd-foreground">
+          <RocketIcon />
+        </span>
+      ),
+      url: "/docs/products/queues",
+      baseUrl: "/docs/products",
     },
   ];
 

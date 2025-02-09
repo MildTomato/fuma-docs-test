@@ -4,8 +4,9 @@ import type { ButtonHTMLAttributes, HTMLAttributes } from "react";
 import { SidebarTrigger } from "fumadocs-core/sidebar";
 import { buttonVariants, cn } from "fumadocs-ui/components/api";
 import { useNav } from "fumadocs-ui/components/layout/nav";
-import { useSidebar } from "fumadocs-ui/provider";
+// import { useSidebar } from "fumadocs-ui/provider";
 import { Menu, X } from "lucide-react";
+import { useSidebar } from "@/provider";
 
 export function Navbar(props: HTMLAttributes<HTMLElement>) {
   const { open, collapsed } = useSidebar();

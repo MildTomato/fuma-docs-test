@@ -1,3 +1,26 @@
 {
-  "root": true
+  "root": true,
+  "pages": [
+    "---Overview---",
+    "index",
+    "---Fundamentals---",
+    "connecting-to-postgres/index",
+    "import-data",
+    "secure-data",
+    "---Working with your database (basics)---",
+    "tables",
+    "arrays",
+    "postgres/indexes",
+    "joins-and-nesting",
+    "json",
+    "---Working with your database (advanced)---",
+    "postgres/cascade-delete",
+    "postgres/enums",
+    "functions",
+    "postgres/triggers",
+    "webhooks",
+    "full-text-search",
+    "partitions",
+    "connection-management"
+  ]
 }

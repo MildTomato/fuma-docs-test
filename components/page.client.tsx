@@ -17,15 +17,22 @@ import {
 } from "fumadocs-core/breadcrumb";
 import { cn } from "fumadocs-ui/components/api";
 import { useNav } from "fumadocs-ui/components/layout/nav";
+// import {
+//   useI18n,
+//   usePageStyles,
+//   useSidebar,
+//   useTreeContext,
+//   useTreePath,
+// } from "fumadocs-ui/provider";
+import { ChevronLeft, ChevronRight } from "lucide-react";
+import { isActive } from "./SideBar";
 import {
   useI18n,
   usePageStyles,
   useSidebar,
   useTreeContext,
   useTreePath,
-} from "fumadocs-ui/provider";
-import { ChevronLeft, ChevronRight } from "lucide-react";
-import { isActive } from "./SideBar";
+} from "@/provider";
 
 export function TocNav(props: HTMLAttributes<HTMLDivElement>) {
   const { open } = useSidebar();

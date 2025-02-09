@@ -208,7 +208,7 @@ export function NavigationMenuDemo() {
                   <ListItem href="/docs/reference/cli" title="CLI Commands">
                     Command line interface.
                   </ListItem>
-                  <ListItem href="/docs/reference/api" title="Management API">
+                  <ListItem href="/docs/management-api" title="Management API">
                     Management API for projects.
                   </ListItem>
 

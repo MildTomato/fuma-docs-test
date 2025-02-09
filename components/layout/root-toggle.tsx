@@ -1,12 +1,15 @@
-'use client';
-import { ChevronDown } from 'lucide-react';
-import { type HTMLAttributes, type ReactNode, useMemo, useState } from 'react';
-import Link from 'next/link';
-import { usePathname } from 'next/navigation';
-import { cn } from '@/utils/cn';
-import { isActive } from '@/utils/is-active';
-import { useSidebar } from '@/contexts/sidebar';
-import { Popover, PopoverContent, PopoverTrigger } from '../ui/popover';
+"use client";
+
+const USE_BASE_URL = false; // Add this constant to manually control baseUrl filtering
+
+import { ChevronDown } from "lucide-react";
+import { type HTMLAttributes, type ReactNode, useMemo, useState } from "react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { cn } from "@/utils/cn";
+import { isActive } from "@/utils/is-active";
+import { useSidebar } from "@/contexts/sidebar";
+import { Popover, PopoverContent, PopoverTrigger } from "../ui/popover";
 
 export interface Option {
   /**
@@ -24,6 +27,8 @@ export interface Option {
   urls?: Set<string>;
 
   props?: HTMLAttributes<HTMLElement>;
+
+  baseUrl?: string;
 }
 
 export function RootToggle({
@@ -39,14 +44,27 @@ export function RootToggle({
   const pathname = usePathname();
 
   const selected = useMemo(() => {
-    return options.findLast((item) =>
+    const relevantOptions = USE_BASE_URL
+      ? options.filter(
+          (item) => !item.baseUrl || pathname.startsWith(item.baseUrl)
+        )
+      : options;
+
+    return relevantOptions.findLast((item) =>
       item.urls
         ? item.urls.has(
-            pathname.endsWith('/') ? pathname.slice(0, -1) : pathname,
+            pathname.endsWith("/") ? pathname.slice(0, -1) : pathname
           )
-        : isActive(item.url, pathname, true),
+        : isActive(item.url, pathname, true)
     );
   }, [options, pathname]);
+
+  // Filter options for display based on USE_BASE_URL constant
+  const visibleOptions = USE_BASE_URL
+    ? options.filter(
+        (item) => !item.baseUrl || pathname.startsWith(item.baseUrl)
+      )
+    : options;
 
   const onClick = () => {
     closeOnRedirect.current = false;
@@ -61,8 +79,8 @@ export function RootToggle({
         <PopoverTrigger
           {...props}
           className={cn(
-            'flex flex-row items-center gap-2 rounded-lg px-2 py-1.5 hover:bg-fd-accent/50 hover:text-fd-accent-foreground',
-            props.className,
+            "flex flex-row items-center gap-2 rounded-lg px-2 py-1.5 hover:bg-fd-accent/50 hover:text-fd-accent-foreground",
+            props.className
           )}
         >
           {item}
@@ -70,18 +88,18 @@ export function RootToggle({
         </PopoverTrigger>
       ) : null}
       <PopoverContent className="w-[var(--radix-popover-trigger-width)] overflow-hidden p-0">
-        {options.map((item) => (
+        {visibleOptions.map((item) => (
           <Link
             key={item.url}
             href={item.url}
             onClick={onClick}
             {...item.props}
             className={cn(
-              'flex w-full flex-row items-center gap-2 px-2 py-1.5',
+              "flex w-full flex-row items-center gap-2 px-2 py-1.5",
               selected === item
-                ? 'bg-fd-accent text-fd-accent-foreground'
-                : 'hover:bg-fd-accent/50',
-              item.props?.className,
+                ? "bg-fd-accent text-fd-accent-foreground"
+                : "hover:bg-fd-accent/50",
+              item.props?.className
             )}
           >
             <Item {...item} />

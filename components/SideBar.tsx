@@ -33,7 +33,7 @@ import type {
   CollapsibleTriggerProps,
 } from "@radix-ui/react-collapsible";
 import type { PageTree } from "fumadocs-core/server";
-import { useSidebar, useTreeContext, useTreePath } from "fumadocs-ui/provider";
+// import { useSidebar, useTreeContext, useTreePath } from "fumadocs-ui/provider";
 import { buttonVariants, cn } from "fumadocs-ui/components/api";
 // import {
 //   ScrollArea,
@@ -49,6 +49,7 @@ import {
   ScrollArea,
   ScrollViewport,
 } from "fumadocs-ui/components/ui/scroll-area";
+import { useSidebar, useTreeContext, useTreePath } from "@/provider";
 
 // import { useTreeContext, useTreePath } from "@/contexts/tree";
 // import type { SidebarComponents } from "@/layouts/docs/shared";
@@ -258,7 +259,10 @@ export function SidebarSeparator(props: HTMLAttributes<HTMLParagraphElement>) {
   return (
     <p
       {...props}
-      className={cn("mb-2 px-2 text-sm font-medium", props.className)}
+      className={cn(
+        "mb-2 px-2 text-xs font-mono uppercase text-muted-foreground/50 tracking-widest",
+        props.className
+      )}
       style={{
         paddingInlineStart: getOffset(level),
         ...props.style,
