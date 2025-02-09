@@ -1,6 +1,6 @@
 "use client";
 
-const USE_BASE_URL = false; // Add this constant to manually control baseUrl filtering
+const USE_BASE_URL = true; // Add this constant to manually control baseUrl filtering
 
 import { ChevronDown } from "lucide-react";
 import { type HTMLAttributes, type ReactNode, useMemo, useState } from "react";

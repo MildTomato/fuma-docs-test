@@ -20,7 +20,19 @@ import {
   SidebarPageTree,
   SidebarViewport,
 } from "../../components/SideBar";
-import { BoxIcon, Database, RocketIcon } from "lucide-react";
+import {
+  Database,
+  Code,
+  GitGraph,
+  Settings,
+  Terminal,
+  KeyRound,
+  HardDrive,
+  Network,
+  Zap,
+  Clock,
+  ListOrdered,
+} from "lucide-react";
 import { RootToggle } from "@/components/layout/root-toggle";
 import { StylesProvider, TreeContextProvider } from "@/provider";
 
@@ -44,7 +56,7 @@ export default function Layout({ children }: { children: ReactNode }) {
       description: "Features available in /pages",
       icon: (
         <span className="border purple-blue-600/50 bg-gradient-to-t from-purple-600/30 rounded-lg p-1 text-purple-600">
-          <BoxIcon />
+          <Database />
         </span>
       ),
       url: "/docs/data-api",
@@ -54,7 +66,7 @@ export default function Layout({ children }: { children: ReactNode }) {
       title: "Client Libraries",
       icon: (
         <span className="border border-fd-foreground/50 bg-gradient-to-t from-fd-foreground/30 rounded-lg p-1 text-fd-foreground">
-          <RocketIcon />
+          <Code />
         </span>
       ),
       url: "/docs/client-libraries",
@@ -64,7 +76,7 @@ export default function Layout({ children }: { children: ReactNode }) {
       title: "GraphQL",
       icon: (
         <span className="border border-fd-foreground/50 bg-gradient-to-t from-fd-foreground/30 rounded-lg p-1 text-fd-foreground">
-          <RocketIcon />
+          <GitGraph />
         </span>
       ),
       url: "/docs/graphql",
@@ -75,7 +87,7 @@ export default function Layout({ children }: { children: ReactNode }) {
       description: "Features available in /app",
       icon: (
         <span className="border border-blue-600/50 bg-gradient-to-t from-blue-600/30 rounded-lg p-1 text-blue-600">
-          <BoxIcon />
+          <Settings />
         </span>
       ),
       url: "/docs/management-api",
@@ -85,7 +97,7 @@ export default function Layout({ children }: { children: ReactNode }) {
       title: "CLI",
       icon: (
         <span className="border border-fd-foreground/50 bg-gradient-to-t from-fd-foreground/30 rounded-lg p-1 text-fd-foreground">
-          <RocketIcon />
+          <Terminal />
         </span>
       ),
       url: "/docs/cli",
@@ -107,7 +119,7 @@ export default function Layout({ children }: { children: ReactNode }) {
       description: "Manage authorization of users.",
       icon: (
         <span className="border border-fd-foreground/50 bg-gradient-to-t from-fd-foreground/30 rounded-lg p-1 text-fd-foreground">
-          <RocketIcon />
+          <KeyRound />
         </span>
       ),
       url: "/docs/products/authentication",
@@ -118,7 +130,7 @@ export default function Layout({ children }: { children: ReactNode }) {
       description: "Store and serve files of any size.",
       icon: (
         <span className="border border-fd-foreground/50 bg-gradient-to-t from-fd-foreground/30 rounded-lg p-1 text-fd-foreground">
-          <RocketIcon />
+          <HardDrive />
         </span>
       ),
       url: "/docs/products/storage",
@@ -129,7 +141,7 @@ export default function Layout({ children }: { children: ReactNode }) {
       description: "Serverless functions globally.",
       icon: (
         <span className="border border-fd-foreground/50 bg-gradient-to-t from-fd-foreground/30 rounded-lg p-1 text-fd-foreground">
-          <RocketIcon />
+          <Network />
         </span>
       ),
       url: "/docs/products/edge-functions",
@@ -140,7 +152,7 @@ export default function Layout({ children }: { children: ReactNode }) {
       description: "Build real-time applications.",
       icon: (
         <span className="border border-fd-foreground/50 bg-gradient-to-t from-fd-foreground/30 rounded-lg p-1 text-fd-foreground">
-          <RocketIcon />
+          <Zap />
         </span>
       ),
       url: "/docs/products/realtime",
@@ -151,7 +163,7 @@ export default function Layout({ children }: { children: ReactNode }) {
       description: "Schedule recurring tasks.",
       icon: (
         <span className="border border-fd-foreground/50 bg-gradient-to-t from-fd-foreground/30 rounded-lg p-1 text-fd-foreground">
-          <RocketIcon />
+          <Clock />
         </span>
       ),
       url: "/docs/products/cron",
@@ -162,7 +174,7 @@ export default function Layout({ children }: { children: ReactNode }) {
       description: "Manage background jobs.",
       icon: (
         <span className="border border-fd-foreground/50 bg-gradient-to-t from-fd-foreground/30 rounded-lg p-1 text-fd-foreground">
-          <RocketIcon />
+          <ListOrdered />
         </span>
       ),
       url: "/docs/products/queues",
