@@ -21,6 +21,7 @@ import { BaseLayoutProps, SharedNavProps } from "fumadocs-ui/layouts/shared";
 import { Fragment, HTMLAttributes, ReactNode } from "react";
 import { Navbar, NavbarSidebarTrigger } from "./NavBar";
 import Link from "next/link";
+import { NavigationMenuDemo } from "@/components/NavBarMenu";
 // import { LanguageToggle } from "fumadocs-ui/components/layout/language-toggle";
 
 export interface DocsLayoutProps extends BaseLayoutProps {
@@ -52,7 +53,8 @@ export function DocsNavbar({
         className="w-full max-w-[240px] rounded-lg max-md:hidden"
       />
       <Title url={nav.url} title={nav.title} className="md:hidden" />
-      <div className="flex flex-1 flex-row items-center gap-6 px-2">
+      <NavigationMenuDemo />
+      {/* <div className="flex flex-1 flex-row items-center gap-6 px-2">
         {links
           .filter((item) => item.type !== "icon")
           .map((item, i) => (
@@ -63,7 +65,7 @@ export function DocsNavbar({
             />
           ))}
         {nav.children}
-      </div>
+      </div> */}
       <SearchToggle hideIfDisabled className="md:hidden" />
       <NavbarSidebarTrigger className="-me-1.5 md:hidden" />
       <div className="flex flex-row items-center empty:hidden max-lg:hidden">

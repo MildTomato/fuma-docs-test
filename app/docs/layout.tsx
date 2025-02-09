@@ -20,7 +20,7 @@ import {
   SidebarPageTree,
   SidebarViewport,
 } from "../../components/SideBar";
-import { BoxIcon, RocketIcon } from "lucide-react";
+import { BoxIcon, Database, RocketIcon } from "lucide-react";
 import { RootToggle } from "fumadocs-ui/components/layout/root-toggle";
 
 export default function Layout({ children }: { children: ReactNode }) {
@@ -80,7 +80,7 @@ export default function Layout({ children }: { children: ReactNode }) {
       title: "Database",
       icon: (
         <span className="border border-fd-foreground/50 bg-gradient-to-t from-fd-foreground/30 rounded-lg p-1 text-fd-foreground">
-          <RocketIcon />
+          <Database />
         </span>
       ),
       url: "/docs/products/database",
@@ -144,7 +144,7 @@ export default function Layout({ children }: { children: ReactNode }) {
                     <RootToggle options={tabs} className="-mx-2" />
                   ) : null}
                 </SidebarHeader>
-                <SidebarViewport>
+                <SidebarViewport className="text-sm">
                   {/* <div className="mb-4 empty:hidden lg:hidden">
                     {links.map((item, i) => (
                       <SidebarLinkItem key={i} item={item} />
@@ -161,7 +161,7 @@ export default function Layout({ children }: { children: ReactNode }) {
                   }
                 >
                   {/* {!props.disableThemeSwitch ? ( */}
-                  <ThemeToggle className="w-fit md:hidden" />
+                  <ThemeToggle />
                   {/* ) : null} */}
                   {/* {sidebarFooter} */}
                 </SidebarFooter>

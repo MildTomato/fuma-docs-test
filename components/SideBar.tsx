@@ -493,6 +493,7 @@ export function SidebarPageTree(props: {
             href={item.url}
             external={item.external}
             icon={item.icon}
+            className="text-sm"
           >
             {item.name}
           </SidebarItem>
