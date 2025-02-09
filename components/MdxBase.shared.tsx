@@ -1,8 +1,8 @@
 // import { ArrowDown, Check, X } from 'lucide-react'
-// import Link from 'next/link'
+import Link from "next/link";
 import { Image } from "@/components/mdx-ui/Image";
 import { Admonition } from "@/components/mdx-ui/admonition";
-// import { GlassPanel } from 'ui-patterns/GlassPanel'
+import { GlassPanel } from "@/components/mdx-ui/GlassPanel";
 // import { IconPanel } from 'ui-patterns/IconPanel'
 // import SqlToRest from 'ui-patterns/SqlToRest'
 // import { Heading } from 'ui/src/components/CustomHTMLElements'
@@ -30,17 +30,17 @@ import { Admonition } from "@/components/mdx-ui/admonition";
 //   SocialProviderSetup,
 //   PostgresInstallation,
 // } from '~/components/MDX/partials'
-// import { NavData } from '~/components/NavData'
+import { NavData } from "@/components/mdx-ui/NavData";
 // import { ProjectConfigVariables } from '~/components/ProjectConfigVariables'
 // import { RealtimeLimitsEstimator } from '~/components/RealtimeLimitsEstimator'
 // import { RegionsList } from '~/components/RegionsList'
 // import { SharedData } from '~/components/SharedData'
-// import StepHikeCompact from '~/components/StepHikeCompact'
+import StepHikeCompact from "@/components/mdx-ui/StepHikeCompact";
 // import { CodeSampleDummy, CodeSampleWrapper } from '~/features/directives/CodeSample.client'
 // import { Accordion, AccordionItem } from '~/features/ui/Accordion'
 // import * as CH from '~/features/ui/CodeHike'
 // import { ShowUntil } from '~/features/ui/ShowUntil'
-// import { TabPanel, Tabs } from '~/features/ui/Tabs'
+import { TabPanel, Tabs } from "@/components/mdx-ui/Tabs";
 
 const components = {
   // Accordion,
@@ -61,7 +61,7 @@ const components = {
   // DatabaseSetup,
   // Extensions,
   // GetSessionWarning,
-  // GlassPanel,
+  GlassPanel,
   // HuggingFaceDeployment,
   // IconArrowDown: ArrowDown,
   // IconCheck: Check,
@@ -70,9 +70,9 @@ const components = {
   Image: (props: any) => <Image fill className="object-contain" {...props} />,
   // JwtGenerator,
   // KotlinProjectSetup,
-  // Link,
+  Link,
   // MigrationWarnings,
-  // NavData,
+  NavData,
   // OAuthPkceFlow,
   // ProjectConfigVariables,
   // ProjectSetup,
@@ -86,9 +86,9 @@ const components = {
   // SocialProviderSetup,
   // PostgresInstallation,
   // SqlToRest,
-  // StepHikeCompact,
-  // Tabs,
-  // TabPanel,
+  StepHikeCompact,
+  Tabs,
+  TabPanel,
   // h2: (props: any) => (
   //   <Heading tag="h2" {...props}>
   //     {props.children}
