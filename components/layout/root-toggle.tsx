@@ -1,6 +1,6 @@
 "use client";
 
-const USE_BASE_URL = true; // Add this constant to manually control baseUrl filtering
+const USE_BASE_URL = true; // Set to true to enable filtering
 
 import { ChevronDown } from "lucide-react";
 import { type HTMLAttributes, type ReactNode, useMemo, useState } from "react";
@@ -43,50 +43,77 @@ export function RootToggle({
   const { closeOnRedirect } = useSidebar();
   const pathname = usePathname();
 
-  const selected = useMemo(() => {
-    const relevantOptions = USE_BASE_URL
-      ? options.filter(
-          (item) => !item.baseUrl || pathname.startsWith(item.baseUrl)
-        )
+  // Group options by baseUrl
+  const visibleOptions = useMemo(() => {
+    if (!USE_BASE_URL) return options;
+
+    console.log("Current pathname:", pathname);
+
+    // Log all baseUrls
+    console.log(
+      "Available baseUrls:",
+      options.map((opt) => ({
+        title: opt.title,
+        baseUrl: opt.baseUrl,
+        url: opt.url,
+      }))
+    );
+
+    // Find which baseUrl matches our current path
+    const matchingBaseUrl = options
+      .map((opt) => opt.baseUrl)
+      .filter(Boolean)
+      .find((baseUrl) => pathname.startsWith(baseUrl));
+
+    console.log("Matching baseUrl:", matchingBaseUrl);
+
+    // If we found a matching baseUrl, only show options with that baseUrl
+    const filtered = matchingBaseUrl
+      ? options.filter((opt) => opt.baseUrl === matchingBaseUrl)
       : options;
 
-    return relevantOptions.findLast((item) =>
+    console.log(
+      "Filtered options:",
+      filtered.map((opt) => opt.title)
+    );
+
+    return filtered;
+  }, [options, pathname]);
+
+  const selected = useMemo(() => {
+    return visibleOptions.findLast((item) =>
       item.urls
         ? item.urls.has(
             pathname.endsWith("/") ? pathname.slice(0, -1) : pathname
           )
         : isActive(item.url, pathname, true)
     );
-  }, [options, pathname]);
-
-  // Filter options for display based on USE_BASE_URL constant
-  const visibleOptions = USE_BASE_URL
-    ? options.filter(
-        (item) => !item.baseUrl || pathname.startsWith(item.baseUrl)
-      )
-    : options;
+  }, [visibleOptions, pathname]);
 
   const onClick = () => {
     closeOnRedirect.current = false;
     setOpen(false);
   };
 
-  const item = selected ? <Item {...selected} /> : placeholder;
+  // Add debug log for selected
+  console.log("Selected:", selected);
 
   return (
     <Popover open={open} onOpenChange={setOpen}>
-      {item ? (
-        <PopoverTrigger
-          {...props}
-          className={cn(
-            "flex flex-row items-center gap-2 rounded-lg px-2 py-1.5 hover:bg-fd-accent/50 hover:text-fd-accent-foreground",
-            props.className
-          )}
-        >
-          {item}
-          <ChevronDown className="me-2 size-4 text-fd-muted-foreground" />
-        </PopoverTrigger>
-      ) : null}
+      <PopoverTrigger
+        {...props}
+        className={cn(
+          "flex flex-row items-center gap-2 rounded-lg px-2 py-1.5 hover:bg-fd-accent/50 hover:text-fd-accent-foreground",
+          props.className
+        )}
+      >
+        {selected ? (
+          <Item {...selected} />
+        ) : (
+          <span className="text-fd-muted-foreground">Select an option...</span>
+        )}
+        <ChevronDown className="me-2 size-4 text-fd-muted-foreground" />
+      </PopoverTrigger>
       <PopoverContent className="w-[var(--radix-popover-trigger-width)] overflow-hidden p-0">
         {visibleOptions.map((item) => (
           <Link

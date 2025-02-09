@@ -52,14 +52,14 @@ export default function Layout({ children }: { children: ReactNode }) {
 
   const tabs = [
     {
-      title: "Data API",
+      title: "REST API",
       description: "Features available in /pages",
       icon: (
         <span className="border purple-blue-600/50 bg-gradient-to-t from-purple-600/30 rounded-lg p-1 text-purple-600">
           <Database />
         </span>
       ),
-      url: "/docs/data-api",
+      url: "/docs/reference/rest",
       baseUrl: "/docs/reference",
     },
     {
@@ -69,7 +69,7 @@ export default function Layout({ children }: { children: ReactNode }) {
           <Code />
         </span>
       ),
-      url: "/docs/client-libraries",
+      url: "/docs/reference/client-libraries",
       baseUrl: "/docs/reference",
     },
     {
@@ -79,7 +79,7 @@ export default function Layout({ children }: { children: ReactNode }) {
           <GitGraph />
         </span>
       ),
-      url: "/docs/graphql",
+      url: "/docs/reference/graphql",
       baseUrl: "/docs/reference",
     },
     {
@@ -90,7 +90,7 @@ export default function Layout({ children }: { children: ReactNode }) {
           <Settings />
         </span>
       ),
-      url: "/docs/management-api",
+      url: "/docs/reference/management-api",
       baseUrl: "/docs/reference",
     },
     {
@@ -100,7 +100,7 @@ export default function Layout({ children }: { children: ReactNode }) {
           <Terminal />
         </span>
       ),
-      url: "/docs/cli",
+      url: "/docs/reference/cli",
       baseUrl: "/docs/reference",
     },
     {
