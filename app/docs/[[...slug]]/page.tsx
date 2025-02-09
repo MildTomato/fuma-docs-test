@@ -1,10 +1,13 @@
+import defaultMdxComponents from "@/components/mdx";
+import { APIPage } from "@/components/open-api/server/api-page";
+import {
+  DocsBody,
+  DocsDescription,
+  DocsPage,
+  DocsTitle,
+} from "@/components/page";
 import { source } from "@/lib/source";
 import { notFound } from "next/navigation";
-import { openapi } from "@/lib/source";
-import { DocsBody, DocsDescription } from "@/components/page";
-import { DocsTitle } from "@/components/page";
-import { DocsPage } from "@/components/page";
-import defaultMdxComponents from "@/components/mdx";
 
 export default async function Page(props: {
   params: Promise<{ slug?: string[] }>;
@@ -40,7 +43,11 @@ export default async function Page(props: {
       <DocsDescription>{page.data.description}</DocsDescription>
       <DocsBody>
         <MDX
-          components={{ ...defaultMdxComponents, APIPage: openapi.APIPage }}
+          components={{
+            ...defaultMdxComponents,
+            APIPage: APIPage,
+            // ClientLibraryPage: ClientLibraryPage,
+          }}
         />
       </DocsBody>
     </DocsPage>
