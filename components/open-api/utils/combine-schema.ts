@@ -1,4 +1,4 @@
-import { type ParsedSchema } from '@/utils/schema';
+import { type ParsedSchema } from "@/components/open-api/utils/schema";
 
 /**
  * Combine multiple object schemas into one
@@ -31,7 +31,7 @@ export function combineSchema(schema: ParsedSchema[]): ParsedSchema {
       result.additionalProperties = true;
     } else if (
       s.additionalProperties &&
-      typeof result.additionalProperties !== 'boolean'
+      typeof result.additionalProperties !== "boolean"
     ) {
       result.additionalProperties ??= {};
       Object.assign(result.additionalProperties, s.additionalProperties);

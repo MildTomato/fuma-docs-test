@@ -120,7 +120,6 @@ export function Operation({
             <Fragment key={status}>
               {heading(headingLevel + 1, status, ctx)}
               <Markdown text={response.description} />
-
               <Schema
                 name="response"
                 schema={content.schema}

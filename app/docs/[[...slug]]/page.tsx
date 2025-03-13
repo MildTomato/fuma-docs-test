@@ -1,3 +1,4 @@
+import ClientLibraryPage from "@/components/client-library/client-library-page";
 import defaultMdxComponents from "@/components/mdx";
 import { APIPage } from "@/components/open-api/server/api-page";
 import {
@@ -46,7 +47,7 @@ export default async function Page(props: {
           components={{
             ...defaultMdxComponents,
             APIPage: APIPage,
-            // ClientLibraryPage: ClientLibraryPage,
+            ClientLibraryPage: ClientLibraryPage,
           }}
         />
       </DocsBody>

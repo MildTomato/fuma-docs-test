@@ -76,13 +76,15 @@ export async function APIPage(props: ApiPageProps) {
         const method = createMethod(item.method, pathItem, operation);
 
         return (
-          <Operation
-            key={`${item.path}:${item.method}`}
-            method={method}
-            path={item.path}
-            ctx={ctx}
-            hasHead={hasHead}
-          />
+          <>
+            <Operation
+              key={`${item.path}:${item.method}`}
+              method={method}
+              path={item.path}
+              ctx={ctx}
+              hasHead={hasHead}
+            />
+          </>
         );
       })}
       {webhooks?.map((item) => {
